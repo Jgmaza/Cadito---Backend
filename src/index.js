@@ -19,6 +19,9 @@ app.use(cors());
 // Routes
 const users = require('./routes/users.js')
 const posts = require('./routes/posts.js')
+const reviews = require('./routes/reviews.js')
+const cart = require('./routes/cart.js')
+const history = require('./routes/history.js')
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')))
@@ -43,6 +46,9 @@ mongoose.connect(dbUrl, connectionParams)
 
 app.use('/users', users);
 app.use('/posts', posts);
+app.use('/reviews', reviews);
+app.use('/cart', cart);
+app.use('/history', history);
 
 app.listen(app.get('port'), () => {
     console.log(`Server on port ${app.get('port')}`);
